@@ -6,10 +6,7 @@ export function Header() {
 					<nav className=''>
 						<ul>
 							<li>
-								<a
-									href='#'
-									className='px-3 py-2 font-bold text-5xl text-stone-50 font-sans '
-								>
+								<a href='#' className='px-3 py-2 font-bold text-5xl'>
 									The Weather
 								</a>
 							</li>

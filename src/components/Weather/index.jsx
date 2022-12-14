@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SearchInput } from './SearchInput';
 
 export function Weather() {
 	const [city, setCity] = useState('');
@@ -6,6 +7,10 @@ export function Weather() {
 
 	const handleChange = (event) => {
 		setCity(event.target.value);
+	};
+
+	const loadDelay = () => {
+		setIsLoaded(true);
 	};
 
 	const handleSearch = () => {
@@ -30,17 +35,34 @@ export function Weather() {
 			<div className='container'>
 				<div className='flex flex-col items-center justify-center'>
 					{data ? (
-						<div>
-							<p>{data.current.condition.text}</p>
+						<div className='mb-10'>
+							<h1 className='text-6xl mb-8 text-center'>
+								{data.location.name}
+							</h1>
+							<h2 className='font-bold text-9xl text-center'>
+								{data.current.temp_c}°C
+							</h2>
+							<div className='flex items-center justify-center'>
+								<div className='max-w-[64px]'>
+									<img
+										className='w-full object-cover'
+										src={data.current.condition.icon}
+										alt={`${data.current.condition.text}`}
+									/>
+								</div>
+								<span className='text-2xl'>{data.current.condition.text}</span>
+							</div>
 						</div>
-					) : null}
-					<input
-						onChange={handleChange}
-						type='text'
-						value={city}
-						placeholder='Digite uma cidade'
-					/>
-					<button onClick={handleSearch}>Pesquisar</button>
+					) : (
+						''
+					)}
+					<SearchInput onChange={handleChange} value={city} />
+					<button
+						onClick={handleSearch}
+						className='py-2 px-4  bg-stone-50 text-cyan-700 font-bold rounded-2xl duration-300 hover:-translate-y-1'
+					>
+						Pesquisar
+					</button>
 				</div>
 			</div>
 		</main>
