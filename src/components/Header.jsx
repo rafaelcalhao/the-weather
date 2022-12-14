@@ -8,7 +8,7 @@ export function Header() {
 							<li>
 								<a
 									href='#'
-									className='px-3 py-2 font-bold text-3xl text-stone-50 font-sans '
+									className='px-3 py-2 font-bold text-5xl text-stone-50 font-sans '
 								>
 									The Weather
 								</a>

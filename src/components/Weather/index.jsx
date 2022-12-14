@@ -25,5 +25,24 @@ export function Weather() {
 			});
 	};
 
-	return <main></main>;
+	return (
+		<main className='py-10'>
+			<div className='container'>
+				<div className='flex flex-col items-center justify-center'>
+					{data ? (
+						<div>
+							<p>{data.current.condition.text}</p>
+						</div>
+					) : null}
+					<input
+						onChange={handleChange}
+						type='text'
+						value={city}
+						placeholder='Digite uma cidade'
+					/>
+					<button onClick={handleSearch}>Pesquisar</button>
+				</div>
+			</div>
+		</main>
+	);
 }
